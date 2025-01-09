@@ -5,6 +5,7 @@ on:
 
 jobs:
   build:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Source Code
@@ -16,12 +17,14 @@ jobs:
           java-version: 17
           distribution: 'temurin'
 
-      # - name: Build using maven
-      #   run: mvn clean install
+      - name: Build using maven
+        run: mvn clean install
 
   fortify-SAST:
     runs-on: ubuntu-latest
     steps:
+      - name: Check Out Source Code
+        uses: actions/checkout@v4
       - name: Fortify SAST Assessment
         uses: fortify/github-action@v1
         with:
