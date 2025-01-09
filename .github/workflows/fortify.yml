@@ -38,5 +38,3 @@ jobs:
           PACKAGE_EXTRA_OPTS:  -bt mvn
           DO_WAIT: true
           DO_EXPORT: true
-
-    needs: build
