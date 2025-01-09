@@ -23,5 +23,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Fortify SAST Assessment
-        run: echo Fortify SAST Assessment
+        uses: fortify/github-action@v1
+        with:
+          sast-scan: true
+        env:
+          SSC_URL: ${{secrets.SSC_URL}}
+          SSC_TOKEN: ${{secrets.SSC_TOKEN}}
+          SC_SAST_TOKEN: ${{secrets.CLIENT_AUTH_TOKEN}}
+          SC_SAST_SENSOR_VERSION: 24.4.0
+          DO_WAIT: true
+          DO_EXPORT: true
+
     needs: build
