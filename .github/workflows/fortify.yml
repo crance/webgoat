@@ -30,7 +30,9 @@ jobs:
           SSC_URL: ${{secrets.SSC_URL}}
           SSC_TOKEN: ${{secrets.SSC_TOKEN}}
           SC_SAST_TOKEN: ${{secrets.CLIENT_AUTH_TOKEN}}
+          # SSC_APPVERSION:<app-name>:<version-name>
           SC_SAST_SENSOR_VERSION: 24.4.0
+          PACKAGE_EXTRA_OPTS:  -bt mvn
           DO_WAIT: true
           DO_EXPORT: true
 
